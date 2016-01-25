@@ -1,7 +1,7 @@
 {
   "name": "bunyan-logger",
   "version": "0.0.1",
-  "description": "Not a final name.",
+  "description": "a simple wraped bunyan logger lib",
   "main": "index.js",
   "scripts": {
     "test": "mocha -R spec"
@@ -10,8 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/Wiredcraft/bunyan-logger.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Chopper",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 4.2.1"
+  },
   "bugs": {
     "url": "https://github.com/Wiredcraft/bunyan-logger/issues"
   },
