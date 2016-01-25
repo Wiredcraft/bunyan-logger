@@ -1,0 +1,27 @@
+{
+  "name": "bunyan-logger",
+  "version": "0.0.1",
+  "description": "Not a final name.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wiredcraft/bunyan-logger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wiredcraft/bunyan-logger/issues"
+  },
+  "homepage": "https://github.com/Wiredcraft/bunyan-logger#readme",
+  "dependencies": {
+    "bunyan": "^1.5.1",
+    "bunyan-syslog": "^0.3.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4",
+    "should": "^8.2.0"
+  }
+}
