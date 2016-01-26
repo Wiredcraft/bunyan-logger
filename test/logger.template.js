@@ -27,7 +27,7 @@ describe('LOGGER#Template ', ()=> {
   it('should log with request template', done=> {
     const data = {
       method: 'GET',
-      url: '/',
+      originalUrl: '/',
       targetModule: 'LOGGER',
       transactionId: 'x-transaction-id',
       appId: 'uuid-1',
@@ -54,7 +54,7 @@ describe('LOGGER#Template ', ()=> {
   it('should log with response template', done=> {
     const data = {
       method: 'GET',
-      url: '/',
+      originalUrl: '/',
       targetModule: 'LOGGER',
       transactionId: 'x-transaction-id',
       appId: 'uuid-1',
