@@ -1,0 +1,32 @@
+{
+  "name": "bunyan-logger",
+  "version": "0.0.1",
+  "description": "a simple wraped bunyan logger lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wiredcraft/bunyan-logger.git"
+  },
+  "author": "Chopper",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 4.2.1"
+  },
+  "bugs": {
+    "url": "https://github.com/Wiredcraft/bunyan-logger/issues"
+  },
+  "homepage": "https://github.com/Wiredcraft/bunyan-logger#readme",
+  "dependencies": {
+    "bunyan": "^1.5.1",
+    "bunyan-syslog": "^0.3.1",
+    "joi": "^7.2.2"
+  },
+  "devDependencies": {
+    "intercept-stdout": "^0.1.2",
+    "mocha": "^2.3.4",
+    "should": "^8.2.0"
+  }
+}
