@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Wiredcraft/bunyan-logger.git"
   },
-  "author": "Chopper",
+  "author": "Chopper Lee <lihengpro@gmail.com>",
   "license": "MIT",
   "engines": {
     "node": ">= 4.2.1"
@@ -19,6 +19,10 @@
     "url": "https://github.com/Wiredcraft/bunyan-logger/issues"
   },
   "homepage": "https://github.com/Wiredcraft/bunyan-logger#readme",
+  "keywords": [
+    "bunyan",
+    "logger"
+  ],
   "dependencies": {
     "bunyan": "^1.5.1",
     "bunyan-syslog": "^0.3.1",
