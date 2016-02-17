@@ -11,7 +11,7 @@ const ringbuffer = new bunyan.RingBuffer({
 
 describe('LOGGER#Stream ', ()=> {
   it('should logging to the RINGBUFFER', done=> {
-    const data = {message: 'this is a test message'};
+    const data = { message: 'this is a test message' };
     const config = {
       streamType: 'RINGBUFFER',
       buffer: ringbuffer
@@ -26,7 +26,7 @@ describe('LOGGER#Stream ', ()=> {
   });
 
   it('should logging to the STDOUT', done=> {
-    const data = {message: 'this is a test message'};
+    const data = { message: 'this is a test message' };
     let stdText = "";
     const unhook = Intercept((txt)=> {
       stdText += txt;
@@ -46,13 +46,18 @@ describe('LOGGER#Stream ', ()=> {
       streamType: 'FILE',
       filePath
     };
-    fs.truncateSync(filePath);
-    const data = {message: 'this is a test message'};
+    // if filepath do not exits, create a new one.
+    if (!fs.existsSync(filePath)) {
+      fs.openSync(filePath, 'w');
+    } else {
+      fs.truncateSync(filePath);
+    }
+    const data = { message: 'this is a test message' };
     const logger = new BunyanLogger(config);
     logger.info(data);
     const fileContent = [];
     const fileReadStream = fs.createReadStream(filePath);
-    const rl = readline.createInterface({input: fileReadStream});
+    const rl = readline.createInterface({ input: fileReadStream });
     rl.on('line', (line)=> {
       fileContent.push(line);
     });
@@ -70,7 +75,7 @@ describe('LOGGER#Stream ', ()=> {
     const config = {
       streamType: 'SYSLOG'
     };
-    const data = {message: 'this is a test message'};
+    const data = { message: 'this is a test message' };
     const logger = new BunyanLogger(config);
     logger.warn(data);
     //TODO: impl syslog stream test
