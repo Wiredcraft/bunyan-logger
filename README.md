@@ -1,6 +1,6 @@
 # bunyan-logger
 
-bunyan-logger is a simple wraped bunyan logger library.
+bunyan-logger is a simple wrapper around bunyan logger library.
 
 **Note**! Requires Node version 4.0 or later
 
