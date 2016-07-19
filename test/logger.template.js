@@ -12,7 +12,7 @@ const config = {
 
 describe('LOGGER#Template ', ()=> {
   it('should log with default template', done=> {
-    const data = {message: 'this is a test message'};
+    const data = { message: 'this is a test message' };
     const logger = new BunyanLogger(config);
     logger.info(data);
     const logInfo = ringbuffer.records[0];
@@ -78,8 +78,20 @@ describe('LOGGER#Template ', ()=> {
     done();
   });
 
+  it('should log with transaction template', done=> {
+    const data = { transactionId: 'uuid-01', msg: 'this is a transaction message' };
+    const logger = new BunyanLogger(config);
+    logger.format = 'transaction';
+    logger.info(data);
+    const logInfo = ringbuffer.records[0];
+    logInfo.should.have.property('level', 30);
+    logInfo.should.have.property('transactionId', 'uuid-01');
+    logInfo.should.have.property('msg', 'this is a transaction message');
+    done();
+  });
+
   it('should log with error template', done=> {
-    const data = {targetModule: 'TEST', message: 'this is a error message', code: 400};
+    const data = { targetModule: 'TEST', message: 'this is a error message', code: 400 };
     const logger = new BunyanLogger(config);
     logger.format = 'error';
     logger.error(data);

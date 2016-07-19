@@ -1,6 +1,6 @@
 {
   "name": "bunyan-logger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a simple wraped bunyan logger lib",
   "main": "index.js",
   "scripts": {
