@@ -1,6 +1,6 @@
 {
   "name": "bunyan-logger",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a simple wraped bunyan logger lib",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,7 @@
   "dependencies": {
     "bunyan": "^1.5.1",
     "bunyan-syslog": "git+https://github.com/ChopperLee2011/node-bunyan-syslog.git",
-    "joi": "^7.2.2"
+    "joi": "^9.1.1"
   },
   "devDependencies": {
     "intercept-stdout": "^0.1.2",
