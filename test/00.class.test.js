@@ -4,7 +4,7 @@ require('should');
 const DebugStream = require('bunyan-debug-stream');
 
 const Logger = require('../lib');
-const ringbuffer = require('../lib/streams/ringbuffer')().stream;
+const ringbuffer = require('../lib/streams/ringbuffer').stream;
 
 describe('The Logger class', () => {
 
@@ -55,6 +55,22 @@ describe('The Logger class', () => {
   it('can create a logger with a stream name (file)', () => {
     const logger = new Logger({ stream: 'file' });
     logger.error(new Error('Lorem'));
+  });
+
+  it('can create a logger with a stream name (file) and options', () => {
+    const logger = new Logger({ stream: { name: 'file', path: './another.log' } });
+    logger.error(new Error('Lorem'));
+  });
+
+  it('cannot create a logger with a name but no predefined streams', () => {
+    const streams = Logger.streams;
+    Logger.streams = null;
+    (() => new Logger()).should.throw();
+    Logger.streams = streams;
+  });
+
+  it('cannot create a logger with a name not in the predefined streams', () => {
+    (() => new Logger({ stream: 'lorem' })).should.throw();
   });
 
 });

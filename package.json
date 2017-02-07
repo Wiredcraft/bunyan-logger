@@ -1,7 +1,7 @@
 {
   "name": "bunyan-logger",
   "version": "0.0.3",
-  "description": "a simple wraped bunyan logger lib",
+  "description": "Extend Bunyan to have default options and predefined streams etc.",
   "main": "index.js",
   "author": {
     "name": "Wiredcraft",
