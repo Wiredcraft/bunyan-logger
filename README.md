@@ -1,36 +1,106 @@
-# bunyan-logger
+# Bunyan Logger
 
-bunyan-logger is a simple wrapper around bunyan logger library.
+[![Build Status](https://travis-ci.org/Wiredcraft/bunyan-logger.svg?branch=master)](https://travis-ci.org/Wiredcraft/bunyan-logger) [![Coverage Status](https://coveralls.io/repos/github/Wiredcraft/bunyan-logger/badge.svg?branch=master)](https://coveralls.io/github/Wiredcraft/bunyan-logger?branch=master)
 
-**Note**! Requires Node version 4.0 or later
+Extend Bunyan to have default options and predefined streams etc.
 
-## Introduction
+## Usage
 
-There are a lot of logger libraries, but if you want to log both request and server information, and you want to easily change logger streams then bunyan-logger can be useful for you.
-
-Fields that are added automatically: "name", "pid", "hostname", "time" and "v".
-
-## Features
-
-  * Log stream config: stdout, syslog, file
-  * Log level: only allow trace, info, warn, error.
-  * Log template: message, error, request, response.
-        
-## Tests
-
-```bash
-npm i && npm test
+```sh
+npm install bunyan-logger
 ```
 
-## Install with npm
-
-```bash
-npm i bunyan-logger --save
+```js
+const Logger = require('bunyan-logger');
 ```
 
-## Example
-        const BunyanLogger = require('bunyan-logger');
-        const data = {message: 'this is a test message'};
-        const logger = new BunyanLogger();
-        logger.info(data);
+## Examples
 
+### Simple
+
+```js
+const Logger = require('bunyan-logger');
+const logger = new Logger({ stream: 'debug' });
+logger.error(new Error('Lorem'));
+```
+
+### With Express
+
+See [express-bunyan-logger](https://www.npmjs.com/package/express-bunyan-logger).
+
+```js
+const Logger = require('bunyan-logger');
+const expressLogger = require('express-bunyan-logger');
+app.use(expressLogger({
+  logger: new Logger({ stream: 'debug' })
+}));
+```
+
+## Predefined streams
+
+### Debug
+
+See [bunyan-debug-stream](https://www.npmjs.com/package/bunyan-debug-stream).
+
+```js
+// Simple.
+const logger = new Logger({ stream: 'debug' });
+
+// With options.
+const logger = new Logger({
+  name: 'myLog',
+  stream: {
+    name: 'debug',
+    basepath: path.resolve(__dirname, '../')
+  },
+  serializers: require('bunyan-debug-stream').serializers
+});
+```
+
+### File
+
+```js
+// Simple.
+const logger = new Logger({ stream: 'file' });
+
+// With options.
+const logger = new Logger({
+  name: 'myLog',
+  stream: {
+    name: 'file',
+    path: './some.log'
+  }
+});
+```
+
+### RingBuffer
+
+```js
+const logger = new Logger({ stream: 'ringbuffer' });
+```
+
+### Stdout
+
+```js
+const logger = new Logger({ stream: 'stdout' });
+```
+
+### Syslog
+
+```js
+// Simple.
+const logger = new Logger({ stream: 'syslog' });
+
+// With options.
+const logger = new Logger({
+  name: 'myLog',
+  stream: {
+    name: 'syslog',
+    host: '10.0.0.1'
+  }
+});
+```
+
+## Extending/overriding predefined streams
+
+See `/example`.
