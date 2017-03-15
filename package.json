@@ -1,6 +1,6 @@
 {
   "name": "bunyan-logger",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Extend Bunyan to have default options and predefined streams etc.",
   "main": "index.js",
   "author": {
