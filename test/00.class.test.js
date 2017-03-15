@@ -62,6 +62,11 @@ describe('The Logger class', () => {
     logger.error(new Error('Lorem'));
   });
 
+  it('can create a logger with a stream name (file) and options', () => {
+    const logger = new Logger({ stream: { name: 'file', options: { path: './another.log' } } });
+    logger.error(new Error('Lorem'));
+  });
+
   it('cannot create a logger with a name but no predefined streams', () => {
     const streams = Logger.streams;
     Logger.streams = null;
