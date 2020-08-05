@@ -10,8 +10,9 @@ branches:
     - master
     - dev
 node_js:
-  - "6"
-  - "4"
+  - "12"
+  - "10"
+  - "8"
 addons:
   apt:
     sources:
