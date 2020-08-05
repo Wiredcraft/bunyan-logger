@@ -28,8 +28,8 @@
   "dependencies": {
     "bunyan": "^1.8.5",
     "bunyan-debug-stream": "^1.0.7",
-    "file-register": "^0.1.0",
-    "syslog-bunyan-logger": "^1.0.0"
+    "bunyan-syslog": "^0.3.3",
+    "file-register": "^0.1.0"
   },
   "devDependencies": {
     "coveralls": "^2.11.16",
